@@ -11,13 +11,13 @@ Minim minim;
 AudioPlayer tree1;
 AudioPlayer tree2;
 
-Serial myPort;
+Serial1 myPort;
 String val;
 
 void setup(){
   String portName = Serial.list()[12]; // calls on the port which teensy is on
-  myPort = new Serial(this, portName, 9600);
-  println(Serial.list()); // prints list of ports that processing can access
+  myPort = new Serial1(this, portName, 9600);
+  println(Serial1.list()); // prints list of ports that processing can access
 
   //setup sound
   minim = new Minim(this);

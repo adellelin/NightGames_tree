@@ -13,6 +13,7 @@ AudioPlayer tree2;
 
 Serial myPort;
 String val;
+float vol = 0.0;
 
 void setup(){
   String portName = Serial.list()[0]; // calls on the port which teensy is on
@@ -35,10 +36,10 @@ void draw()
 
    //print(val); // prints out string data from arduino
     int sum = 0;
-    int sum1 = 0;
+    float sum1 = 0.0;
     int sum2 = 0;
 
-    sum = sum + list[0];
+    //sum = sum + list[0];
     sum1 = sum1 + list[1];
     sum2 = sum2 + list[2];
       
@@ -51,14 +52,20 @@ void draw()
     print('\n');
        
     if (sum1 > 500) {
+      float m = map(sum1, 0.0, 3500.0, -60.0, 0.0);
+      println(m);
+      tree1.setGain(m);
+      if (tree1.isPlaying()==false){
       tree1.play(0);
       } else if (sum1 <500){
-        tree1.pause();
+        //tree1.pause();
       }
+    }
 
     if (sum2 > 500) {
       tree2.play(0);
     } else if (sum2 <500){
+      tree2.pause();
     }
      }
   }

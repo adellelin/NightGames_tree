@@ -37,7 +37,7 @@ void draw()
    //print(val); // prints out string data from arduino
     int sum = 0;
     float sum1 = 0.0;
-    int sum2 = 0;
+    float sum2 = 0;
 
     //sum = sum + list[0];
     sum1 = sum1 + list[1];
@@ -63,11 +63,16 @@ void draw()
     }
 
     if (sum2 > 500) {
+      float m2 = map(sum2, 0.0, 1500.0, -60.0, 0.0);
+      println(m2);
+      tree2.setGain(m2);
+      if (tree2.isPlaying()==false){
       tree2.play(0);
     } else if (sum2 <500){
-      tree2.pause();
+     // tree2.pause();
     }
      }
+    }
   }
 }
 

@@ -58,7 +58,7 @@ void draw()
       if (tree1.isPlaying()==false){
       tree1.play(0);
       } else if (sum1 <500){
-        //tree1.pause();
+        tree1.pause();
       }
     }
 

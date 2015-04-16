@@ -11,13 +11,13 @@ Minim minim;
 AudioPlayer tree1;
 AudioPlayer tree2;
 
-Serial1 myPort;
+Serial myPort;
 String val;
 
 void setup(){
   String portName = Serial.list()[12]; // calls on the port which teensy is on
-  myPort = new Serial1(this, portName, 9600);
-  println(Serial1.list()); // prints list of ports that processing can access
+  myPort = new Serial(this, portName, 9600);
+  println(Serial.list()); // prints list of ports that processing can access
 
   //setup sound
   minim = new Minim(this);
@@ -36,32 +36,38 @@ void draw()
    //print(val); // prints out string data from arduino
     int sum = 0;
     int sum1 = 0;
-   //int sum2 = 0;
+    int sum2 = 0;
 
     sum = sum + list[0];
     sum1 = sum1 + list[1];
-   //sum2 = sum2 + list[2];
+    sum2 = sum2 + list[2];
       
     print(sum);
     print('\t');
     print(sum1);
     print('\t');
-  // print(sum2);
-  // print('\t');
+    print(sum2);
+    print('\t');
     print('\n');
        
     if (sum1 > 500) {
       tree1.play(0);
+      if (sum1 < 50cd Pro  0); {
+        tree1.pause();
+      }
       } else if (sum1 <500){
-        //tree1.pause();
+        tree1.pause();
       }
 
-//    if (sum2 > 500) {
-//      tree2.play(0);
-//    } else if (sum2 <500){
-//    }
+ if (sum2 > 500) {
+      tree2.play(0);
+//       if (sum2 < 0); {
+//        tree2.pause();
+//       }
+    } else if (sum2 <500){
+    }
      }
-  }
+  }     
 }
 
 
